@@ -1,0 +1,27 @@
+ALGORITHM Dot product
+VAR
+    setone : ARRAY_OF INTEGER;
+    settwo : ARRAY_OF INTEGER;
+    N : INTEGER:=0
+    i,j: INTEGER
+    e: BOOLEAN:=false
+BEGIN
+FOR i FROM 0 TO setone.length-1 STEP step  DO
+    read(setone[i])
+    
+END_FOR
+    
+    FOR i FROM 0 TO setone.length-1 STEP step  DO
+    e:=false
+        FOR j from 0 min TO max settwo.length-1 step  DO
+            
+            IF (setone[i]=settwo[j]) THEN
+            e:=true
+            BREAK
+            END_IF
+        END_FOR
+IF (e=false) THEN
+    N:=setone[i]+N
+END_IF
+write (N)
+END
