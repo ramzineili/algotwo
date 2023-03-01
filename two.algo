@@ -1,6 +1,41 @@
-ALGORITHM algorithm_name
+PROCEDURE Dot-product(v1,v2:ARRAY_OF FLOAT,VAR ps: FLOAT)
 VAR
-    set_declarations
+    i: INTEGER;
 BEGIN
-    set_instructions
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        ps:=ps+v1[i]*v2[i]
+    END_FOR
+END
+FUNCTION Dot-product(v1,v2:ARRAY_OF FLOAT) : FLOAT
+VAR
+    i: INTEGER
+    prod: FLOAT:=0;
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        prod:=prod+v1[i]*v2[i]
+    END_FOR
+    RETURN prod ;
+END
+ALGORITHM Dot_product
+VAR
+    n,i:INTEGER;
+    v1,v2: ARRAY_OF FLOAT;
+    ps:FLOAT:=0;
+BEGIN
+    read(n);
+    FOR i FROM 0 TO n-1 STEP step  DO
+        IF (v1.length<>v2.length) THEN
+            write("les deux vecteurs ne sont pas de meme taille");
+            break;
+        END_IF
+        //calcul par procedure
+        Dot-product(v1,v2,ps);
+        //calcul par fonction
+        ps:=Dot-product(v1,v2);
+        IF (ps=0) THEN
+            write("les deux vecteurs sont orthgonaux")
+        ELSE
+            write("les deux vecteurs ne sont pas orthgonaux")
+        END_IF
+    END_FOR
 END
